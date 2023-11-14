@@ -7,7 +7,7 @@ class InputView {
     fun readVisitDate(): Int {
         println(MESSAGE.WHEN_IS_VISIT_DATE)
         val input = Console.readLine()
-        // ...
+        return input.toInt()
     }
     fun readMenu(): Map<String, Int> {
         println(MESSAGE.TAKE_ORDER)

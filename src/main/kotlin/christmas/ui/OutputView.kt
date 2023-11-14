@@ -22,11 +22,11 @@ class OutputView {
         //...
     }
     fun printDiscountDetails() {
-        println(MESSAGE.DISCOUNT_DETAILS)
+        println(MESSAGE.BENEFITS_DETAILS)
         //...
     }
     fun printTotalOfDiscount() {
-        println(MESSAGE.TOTAL_OF_DISCOUNT)
+        println(MESSAGE.TOTAL_BENEFITS)
         //...
     }
     fun printTotalAfterDiscount() {

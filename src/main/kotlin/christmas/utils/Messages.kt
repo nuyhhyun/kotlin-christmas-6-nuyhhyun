@@ -11,8 +11,8 @@ class Messages {
         const val ORDERED_MENU = "<주문 메뉴>"
         const val TOTAL_BEFORE_DISCOUNT = "<할인 전 총주문 금액>"
         const val GIVEAWAY_MENU = "<증정 메뉴>"
-        const val DISCOUNT_DETAILS = "<혜택 내역>"
-        const val TOTAL_OF_DISCOUNT = "<총혜택 금액>"
+        const val BENEFITS_DETAILS = "<혜택 내역>"
+        const val TOTAL_BENEFITS = "<총혜택 금액>"
         const val TOTAL_AFTER_DISCOUNT = "<할인 후 예상 결제 금액>"
         const val BADGE_OF_EVENT = "<12월 이벤트 배지>"
 
