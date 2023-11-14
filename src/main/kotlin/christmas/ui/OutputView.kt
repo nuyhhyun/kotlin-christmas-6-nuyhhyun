@@ -1,6 +1,7 @@
 package christmas.ui
 
 import christmas.utils.Messages.Companion as MESSAGE
+import christmas.MenuList as MENU
 
 class OutputView {
     fun printWelcome() {
@@ -9,13 +10,21 @@ class OutputView {
     fun printPreview(visitDate: Int) {
         println("${MESSAGE.PREVIEW_OF_DISCOUNT_FRONT}+${visitDate}+${MESSAGE.PREVIEW_OF_DISCOUNT_BACK}")
     }
-    fun printMenu() {
+    fun printMenu(orderedMenu: Map<String, Int>) {
         println(MESSAGE.ORDERED_MENU)
-        // ...
+        for((menu, quantity) in orderedMenu) {
+            println("${menu} ${quantity}+${MESSAGE.QUANTITY_UNIT}")
+        }
     }
-    fun printTotalBeforeDiscount() {
+    fun printTotalBeforeDiscount(orderedMenu: Map<String, Int>) {
         println(MESSAGE.TOTAL_BEFORE_DISCOUNT)
-        //...
+
+        var total = 0
+        for((menuName, quantity) in orderedMenu) {
+            total += MENU.valueOf(menuName).calculateEachTotal(quantity)
+        }
+
+        println("${total}+${MESSAGE.QUANTITY_UNIT}")
     }
     fun printGiveawayMenu() {
         println(MESSAGE.GIVEAWAY_MENU)

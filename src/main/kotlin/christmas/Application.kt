@@ -19,6 +19,10 @@ enum class MenuList(
     COKE_ZERO("음료", "제로콜라", 3_000),
     RED_WINE("음료", "레드와인", 60_000),
     CHAMPAGNE("음료", "샴페인", 25_000);
+
+    fun calculateEachTotal(quantity: Int): Int {
+        return price * quantity
+    }
 }
 fun main() {
     val event = EventPlanner()
