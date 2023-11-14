@@ -19,6 +19,7 @@ class Messages {
         const val CURRENCY_UNIT = "원"
         const val QUANTITY_UNIT = "개"
         const val NOTHING_POSSIBLE = "없음"
+        const val GIVEAWAY_POSSIBLE = "샴페인 1개"
         const val CHRISTMAS_DISCOUNT = "크리스마스 디데이 할인: -"
         const val WEEKDAY_DISCOUNT = "평일 할인: -"
         const val WEEKEND_DISCOUNT = "특별 할인: -"

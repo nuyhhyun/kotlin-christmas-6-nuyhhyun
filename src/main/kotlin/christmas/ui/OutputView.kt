@@ -16,7 +16,7 @@ class OutputView {
             println("${menu} ${quantity}+${MESSAGE.QUANTITY_UNIT}")
         }
     }
-    fun printTotalBeforeDiscount(orderedMenu: Map<String, Int>) {
+    fun printTotalBeforeDiscount(orderedMenu: Map<String, Int>): Int {
         println(MESSAGE.TOTAL_BEFORE_DISCOUNT)
 
         var total = 0
@@ -24,11 +24,16 @@ class OutputView {
             total += MENU.valueOf(menuName).calculateEachTotal(quantity)
         }
 
-        println("${total}+${MESSAGE.QUANTITY_UNIT}")
+        println("${total}+${MESSAGE.CURRENCY_UNIT}")
+        return total
     }
-    fun printGiveawayMenu() {
+    fun printGiveawayMenu(totalBeforeDiscount: Int) {
         println(MESSAGE.GIVEAWAY_MENU)
-        //...
+
+        var giveawayMessage = MESSAGE.NOTHING_POSSIBLE
+        if(totalBeforeDiscount >= 120_000)
+            giveawayMessage = MESSAGE.GIVEAWAY_POSSIBLE
+        println(giveawayMessage)
     }
     fun printDiscountDetails() {
         println(MESSAGE.BENEFITS_DETAILS)

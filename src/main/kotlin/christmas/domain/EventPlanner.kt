@@ -18,9 +18,13 @@ class EventPlanner {
     }
     private fun informOrder(orderedMenu: Map<String, Int>) {
         output.printMenu(orderedMenu)
-        output.printTotalBeforeDiscount(orderedMenu)
+        totalBeforeDiscount = output.printTotalBeforeDiscount(orderedMenu)
     }
     private fun informBenefits(visitDate: Int, orderedMenu: Map<String, Int>) {
+        output.printGiveawayMenu(totalBeforeDiscount)
+    }
 
+    companion object {
+        var totalBeforeDiscount: Int = 0
     }
 }
