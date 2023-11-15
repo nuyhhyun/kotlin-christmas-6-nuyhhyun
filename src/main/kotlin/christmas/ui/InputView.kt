@@ -24,7 +24,7 @@ class InputView {
         }
 
         if(!isInRange) {
-            output.printInvalidInputError()
+            output.printInvalidDateError()
             readVisitDate()
         }
     }
@@ -61,15 +61,16 @@ class InputView {
     }
 
     private fun isOnlyBeverageValidation(orderMap: MutableMap<String, Int>) {
-        var isOnlyBeverage = true
+        var beverageCount = 0
         for(menuName in orderMap.keys) {
-            if(isInMenuValidation(menuName)
-                && !MENU_HEADER.isInMenuHeader(MENU_HEADER.BEVERAGE, menuName))
-                isOnlyBeverage = false
+            if(!isInMenuValidation(menuName))
+                beverageCount = orderMap.size
+            if(MENU_HEADER.isInMenuHeader(MENU_HEADER.BEVERAGE, menuName))
+                beverageCount++
         }
 
-        if(isOnlyBeverage) {
-            output.printOnlyBeverageError()
+        if(beverageCount >= orderMap.size) {
+            output.printInvalidOrderError()
             readMenu()
         }
     }
@@ -82,7 +83,7 @@ class InputView {
         }
 
         if(!isRightInput) {
-            output.printInvalidInputError()
+            output.printInvalidOrderError()
             readMenu()
         }
     }
@@ -99,7 +100,7 @@ class InputView {
     private fun isDuplicatedValidation(orderMap: MutableMap<String, Int>) {
         val orderMenu = orderMap.keys.toList()
         if(orderMenu.size != orderMenu.toSet().size) {
-            output.printInvalidInputError()
+            output.printInvalidOrderError()
             readMenu()
         }
     }

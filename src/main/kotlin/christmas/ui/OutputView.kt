@@ -22,8 +22,8 @@ class OutputView {
         println(MESSAGE.TOTAL_BEFORE_DISCOUNT)
 
         var total = 0
-        for((menuName, quantity) in orderedMenu) {
-            total += MENU.valueOf(menuName).calculateEachTotal(quantity)
+        for(order in orderedMenu) {
+            total += MENU.calculateEachTotal(order)
         }
 
         println("${total}" + MESSAGE.CURRENCY_UNIT)
@@ -84,18 +84,15 @@ class OutputView {
         println(badge)
     }
 
-    fun printOnlyBeverageError() {
-        println(MESSAGE.ONLY_BEVERAGE)
-    }
-
     fun printTooManyMenuError() {
         println(MESSAGE.TOO_MANY_MENU)
     }
-
-    fun printInvalidInputError() {
+    fun printInvalidDateError() {
+        println(MESSAGE.INVALID_DATE)
+    }
+    fun printInvalidOrderError() {
         println(MESSAGE.INVALID_ORDER)
     }
-
 
     companion object {
         val decimal = DecimalFormat("#,###")

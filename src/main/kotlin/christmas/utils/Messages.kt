@@ -29,8 +29,8 @@ class Messages {
         const val BADGE_OVER_20_000 = "산타"
 
         const val WRONG_DISCOUNT_SUSPECTED = "[ERROR] 할인 금액이 정상적으로 책정되지 않았습니다. 확인이 필요합니다."
-        const val ONLY_BEVERAGE = "[ERROR] 음료만 주문할 경우 주문이 어렵습니다. 다시 입력해 주세요."
         const val TOO_MANY_MENU = "[ERROR] 총 20개까지만 주문 가능합니다. 다시 입력해 주세요."
-        const val INVALID_ORDER = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."
+        const val INVALID_DATE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."
+        const val INVALID_ORDER = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."
     }
 }

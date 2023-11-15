@@ -1,6 +1,5 @@
 package christmas
 
-import christmas.domain.Benefits
 import christmas.domain.EventPlanner
 import christmas.utils.Messages.Companion as MESSAGE
 
@@ -41,9 +40,6 @@ enum class Menu(
     RED_WINE("레드와인", 60_000),
     CHAMPAGNE("샴페인", 25_000);
 
-    fun calculateEachTotal(quantity: Int): Int {
-        return price * quantity
-    }
     companion object {
         val giveawayQauntity = 1
 
@@ -57,6 +53,11 @@ enum class Menu(
 
         fun isSameMenu(order: String, menu: Menu): Boolean {
             return menu.menuName == order
+        }
+
+        fun calculateEachTotal(order: Map.Entry<String, Int>): Int {
+            val menu = Menu.values().find { it.menuName == order.key }
+            return menu!!.price * order.value
         }
     }
 }
