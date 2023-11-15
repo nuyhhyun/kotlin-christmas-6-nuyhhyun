@@ -1,5 +1,7 @@
 package christmas.domain
 
+import christmas.domain.EventPlanner.Companion.totalBeforeDiscount
+import christmas.domain.EventPlanner.Companion.totalBenefits
 import christmas.ui.OutputView
 import christmas.MenuHeader as MENU_HEADER
 
@@ -13,9 +15,9 @@ class Benefits {
     val output = OutputView()
 
     fun giveawayMenu(totalBeforeDiscount: Int) {
-        val lowerLimitOfgiveaway = 120_000
+        val lowerLimitOfGiveaway = 120_000
 
-        if(totalBeforeDiscount >= lowerLimitOfgiveaway)
+        if(totalBeforeDiscount >= lowerLimitOfGiveaway)
             isPossibleGiveaway = true
 
         output.printGiveawayMenu(isPossibleGiveaway)
@@ -24,13 +26,15 @@ class Benefits {
     fun benefitsDetails(visitDate: Int, orderedMenu: Map<String, Int>) {
         output.printBenefitsDetails()
 
-        output.printGiveawayDetails(isPossibleGiveaway)
-        christmasDiscount(visitDate)
+        if(totalBeforeDiscount >= 10_000) {
+            output.printGiveawayDetails(isPossibleGiveaway)
+            christmasDiscount(visitDate)
 
-        when(whichDayIsIt(visitDate)) {
-            Day.WEEKDAY -> weekdayDiscount(orderedMenu)
-            Day.WEEKEND -> weekendDiscount(orderedMenu)
-            Day.STARRED -> starredDiscount()
+            when (whichDayIsIt(visitDate)) {
+                Day.WEEKDAY -> weekdayDiscount(orderedMenu)
+                Day.WEEKEND -> weekendDiscount(orderedMenu)
+                Day.STARRED -> starredDiscount()
+            }
         }
 
         if(totalBenefits == 0)
@@ -84,6 +88,5 @@ class Benefits {
 
     companion object {
         var isPossibleGiveaway = false
-        var totalBenefits = 0
     }
 }

@@ -79,9 +79,21 @@ class OutputView {
                 in 5_000..9_999 -> MESSAGE.BADGE_OVER_5_000
                 in 10_000..19_999 -> MESSAGE.BADGE_OVER_10_000
                 in 20_000..MAX_BENEFITS -> MESSAGE.BADGE_OVER_20_000
-                else -> "[ERROR] 할인 금액이 정상적으로 책정되지 않았습니다. 확인이 필요합니다."
+                else -> MESSAGE.WRONG_DISCOUNT_SUSPECTED
             }
         println(badge)
+    }
+
+    fun printOnlyBeverageError() {
+        println(MESSAGE.ONLY_BEVERAGE)
+    }
+
+    fun printTooManyMenuError() {
+        println(MESSAGE.TOO_MANY_MENU)
+    }
+
+    fun printInvalidInputError() {
+        println(MESSAGE.INVALID_ORDER)
     }
 
 
