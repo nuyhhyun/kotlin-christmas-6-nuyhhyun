@@ -6,6 +6,7 @@ import christmas.ui.InputView
 class EventPlanner {
     private val output = OutputView()
     private val input = InputView()
+    private val benefits = Benefits()
 
     fun startEventPlanner() {
         output.printWelcome()
@@ -21,7 +22,8 @@ class EventPlanner {
         totalBeforeDiscount = output.printTotalBeforeDiscount(orderedMenu)
     }
     private fun informBenefits(visitDate: Int, orderedMenu: Map<String, Int>) {
-        output.printGiveawayMenu(totalBeforeDiscount)
+        benefits.giveawayMenu(totalBeforeDiscount)
+        benefits.benefitsDetails(visitDate, orderedMenu)
     }
 
     companion object {
