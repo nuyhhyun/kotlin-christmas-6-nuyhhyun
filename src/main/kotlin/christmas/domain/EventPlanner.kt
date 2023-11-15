@@ -9,14 +9,17 @@ class EventPlanner {
     private val benefits = Benefits()
 
     fun startEventPlanner() {
-        output.printWelcome()
         val visitDate = input.readVisitDate()
         val orderedMenu = input.readMenu()
+
+        output.printWelcome()
         output.printPreview(visitDate)
 
         informOrder(orderedMenu)
         informBenefits(visitDate, orderedMenu)
+        informTotal()
     }
+
     private fun informOrder(orderedMenu: Map<String, Int>) {
         output.printMenu(orderedMenu)
         totalBeforeDiscount = output.printTotalBeforeDiscount(orderedMenu)
@@ -25,8 +28,14 @@ class EventPlanner {
         benefits.giveawayMenu(totalBeforeDiscount)
         benefits.benefitsDetails(visitDate, orderedMenu)
     }
+    private fun informTotal() {
+        output.printTotalBenefits(totalBenefits)
+        output.printTotalAfterDiscount(totalBeforeDiscount - totalBenefits)
+        output.printBadgeOfEvent(totalBenefits)
+    }
 
     companion object {
         var totalBeforeDiscount: Int = 0
+        var totalBenefits = 0
     }
 }

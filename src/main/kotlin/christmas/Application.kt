@@ -51,7 +51,7 @@ enum class Menu(
             return CHAMPAGNE.menuName + " ${giveawayQauntity}${MESSAGE.QUANTITY_UNIT}"
         }
         fun informGiveawayBenefit(): String {
-            Benefits.totalBenefits += CHAMPAGNE.price
+            EventPlanner.totalBenefits += CHAMPAGNE.price
             return MESSAGE.GIVEAWAY_EVENT + CHAMPAGNE.price
         }
 

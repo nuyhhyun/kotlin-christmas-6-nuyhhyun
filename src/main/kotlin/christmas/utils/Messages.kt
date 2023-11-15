@@ -26,6 +26,8 @@ class Messages {
         const val GIVEAWAY_EVENT = "증정 이벤트: -"
         const val BADGE_OVER_5_000 = "별"
         const val BADGE_OVER_10_000 = "트리"
-        const val BAGE_OVER_20_000 = "산타"
+        const val BADGE_OVER_20_000 = "산타"
+
+        const val WRONG_DISCOUNT_SUSPECTED = "[ERROR] 할인 금액이 정상적으로 책정되지 않았습니다. 확인이 필요합니다."
     }
 }
