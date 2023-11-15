@@ -24,10 +24,12 @@ class EventPlanner {
         output.printMenu(orderedMenu)
         totalBeforeDiscount = output.printTotalBeforeDiscount(orderedMenu)
     }
+
     private fun informBenefits(visitDate: Int, orderedMenu: Map<String, Int>) {
         benefits.giveawayMenu(totalBeforeDiscount)
         benefits.benefitsDetails(visitDate, orderedMenu)
     }
+
     private fun informTotal() {
         output.printTotalBenefits(totalBenefits)
         output.printTotalAfterDiscount(totalBeforeDiscount - totalBenefits)

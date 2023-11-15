@@ -17,7 +17,7 @@ class Benefits {
     fun giveawayMenu(totalBeforeDiscount: Int) {
         val lowerLimitOfGiveaway = 120_000
 
-        if(totalBeforeDiscount >= lowerLimitOfGiveaway)
+        if (totalBeforeDiscount >= lowerLimitOfGiveaway)
             isPossibleGiveaway = true
 
         output.printGiveawayMenu(isPossibleGiveaway)
@@ -26,7 +26,7 @@ class Benefits {
     fun benefitsDetails(visitDate: Int, orderedMenu: Map<String, Int>) {
         output.printBenefitsDetails()
 
-        if(totalBeforeDiscount >= 10_000) {
+        if (totalBeforeDiscount >= 10_000) {
             output.printGiveawayDetails(isPossibleGiveaway)
             christmasDiscount(visitDate)
 
@@ -37,29 +37,31 @@ class Benefits {
             }
         }
 
-        if(totalBenefits == 0)
+        if (totalBenefits == 0)
             output.printNoneBenefit()
     }
 
     private fun christmasDiscount(visitDate: Int) {
-        if(visitDate <= 25) {
+        if (visitDate <= 25) {
             val christmasDiscount = 1_000 + 100 * (visitDate - 1)
             output.printChristmasDiscount(christmasDiscount)
 
             totalBenefits += christmasDiscount
         }
     }
+
     private fun whichDayIsIt(visitDate: Int): Day {
-        return when(visitDate) {
+        return when (visitDate) {
             1, 2, 8, 9, 15, 16, 22, 23, 29, 30 -> Day.WEEKEND
             3, 10, 17, 24, 25, 31 -> Day.STARRED
             else -> Day.WEEKDAY
         }
     }
+
     private fun weekdayDiscount(orderedMenu: Map<String, Int>) {
         var countOfPossibleDiscount = 0
-        for(order in orderedMenu.keys) {
-            if(MENU_HEADER.isInMenuHeader(MENU_HEADER.DESSERT, order))
+        for (order in orderedMenu.keys) {
+            if (MENU_HEADER.isInMenuHeader(MENU_HEADER.DESSERT, order))
                 countOfPossibleDiscount++
         }
 
@@ -68,10 +70,11 @@ class Benefits {
         output.printWeekdayDiscount(totalWeekdayDiscount)
         totalBenefits += totalWeekdayDiscount
     }
+
     private fun weekendDiscount(orderedMenu: Map<String, Int>) {
         var countOfPossibleDiscount = 0
-        for(order in orderedMenu.keys) {
-            if(MENU_HEADER.isInMenuHeader(MENU_HEADER.MAIN, order))
+        for (order in orderedMenu.keys) {
+            if (MENU_HEADER.isInMenuHeader(MENU_HEADER.MAIN, order))
                 countOfPossibleDiscount++
         }
 
@@ -80,6 +83,7 @@ class Benefits {
         output.printWeekendDiscount(totalWeekendDiscount)
         totalBenefits += totalWeekendDiscount
     }
+
     private fun starredDiscount() {
         val starredDiscount = 1_000
         output.printStarredDiscount(starredDiscount)

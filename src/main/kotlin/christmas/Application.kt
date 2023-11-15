@@ -14,8 +14,8 @@ enum class MenuHeader(
     companion object {
         fun isInMenuHeader(menuHeader: MenuHeader, order: String): Boolean {
             var isInMenuHeader = false
-            for(menu in menuHeader.menu) {
-                if(Menu.isSameMenu(order, menu))
+            for (menu in menuHeader.menu) {
+                if (Menu.isSameMenu(order, menu))
                     isInMenuHeader = true
             }
             return isInMenuHeader
@@ -46,6 +46,7 @@ enum class Menu(
         fun getGiveawayMenu(): String {
             return CHAMPAGNE.menuName + " ${giveawayQauntity}${MESSAGE.QUANTITY_UNIT}"
         }
+
         fun informGiveawayBenefit(): String {
             EventPlanner.totalBenefits += CHAMPAGNE.price
             return MESSAGE.GIVEAWAY_EVENT + CHAMPAGNE.price
@@ -61,6 +62,7 @@ enum class Menu(
         }
     }
 }
+
 fun main() {
     val event = EventPlanner()
 
